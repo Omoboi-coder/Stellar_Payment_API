@@ -1,7 +1,9 @@
 create table if not exists merchants (
   id uuid primary key default gen_random_uuid(),
-  email text unique,
-  api_key text unique,
+  email text unique not null,
+  business_name text not null,
+  notification_email text not null,
+  api_key text unique not null,
   created_at timestamptz not null default now()
 );
 

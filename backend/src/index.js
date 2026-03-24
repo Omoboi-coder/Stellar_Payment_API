@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import paymentsRouter from "./routes/payments.js";
+import merchantsRouter from "./routes/merchants.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api", paymentsRouter);
+app.use("/api/merchants", merchantsRouter);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;
